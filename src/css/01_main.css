@@ -1,0 +1,52 @@
+/* Main Styles for page layout */
+
+body {
+    background: #EFEFEF;
+}
+
+main {
+    margin-top: 5em;
+}
+
+/* navbar */
+.navbar-default {
+    -webkit-box-shadow: 0 1px 4px #444;
+    -moz-box-shadow: 0 1px 4px #444;
+    box-shadow: 0 1px 4px #444;
+}
+
+.navbar-brand h1 {
+    font-size: 1.5em;
+    margin: -0.2em 0 0 0;
+}
+
+.navbar-default {
+    background-color: #444;
+    border-color: #444;
+}
+
+.navbar-default .navbar-brand {
+    color: #EFEFEF;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #EFEFEF;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+}
+
+.navbar-brand img.logo {
+    width: 40px;
+    margin: -0.2em 0.1em 0 0;
+    vertical-align: middle;
+}
+
+
+
+

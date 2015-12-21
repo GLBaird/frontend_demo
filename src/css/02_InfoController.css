@@ -1,0 +1,30 @@
+/* InfoController CSS Styles */
+
+.info {
+    margin-top: 1.5em;
+}
+
+.error {
+	border: 1px solid red;
+	color: red;
+	padding: 1em;
+}
+
+img.avatar {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 1em;
+	width: 20%;
+	max-width: 300px;
+}
+
+div.gitdata {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 970px) {
+	.input-group-addon {
+		display: none;
+	}
+}

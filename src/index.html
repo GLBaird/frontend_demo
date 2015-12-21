@@ -1,0 +1,87 @@
+<!-- Github Demo App by Leon Baird <leonbaird@mac.com> -->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="GitDemoApp">
+<head>
+
+    <meta charset="UTF-8">
+    <title>GitDemoApp</title>
+    <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="Demo App using Github APIs and Express">
+
+    <!-- CSS Templates
+    during final build by GULP, numbered templates are concatinated in order and
+    minified into single css file: styles.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Frameworks - loaded from bower during local development, then
+    swapped for online CDN Versions by gulp during final build.
+    They are NOT included in local bundle builds as this will make the app
+    take longer to download, and most desktops will have cached versions of these
+    frameworks already from these CDNs. Only bespoke application code is built
+    into local bundle app.js by Browserify -->
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+
+<body ng-controller="TabSearchController">
+
+<!-- BS3 Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <header class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <h1>
+                    <img class="logo" src="images/icon.png" alt="Github Demo App" title="Github Demo App" />
+                    Leon Baird
+                </h1>
+            </a>
+        </header>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a ng-href="#/info/{{username}}">Information</a></li>
+                <li><a ng-href="#/repos/{{username}}" ng-show="username">Repositories</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<main class="container">
+
+        <!-- Search Form -->
+        <form ng-submit="askInfoControllerToGetData(accountName)">
+            <p id="accountNameDesc">Enter the username of a GitHub Account:</p>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">https://github.com/</span>
+                <input ng-model="accountName" type="text" class="form-control" placeholder="username" aria-describedby="accountNameDesc">
+                <span class="input-group-btn">
+                    <input class="btn btn-primary" type="submit" value="Search">
+                </span>
+            </div>
+
+        </form>
+
+        <!-- Error display -->
+        <p class="error" ng-show="error">{{error}}</p>
+
+        <!-- Store for views -->
+        <div ng-view></div>
+    </main>
+
+    <!-- Load application bundle, minified on final build -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
